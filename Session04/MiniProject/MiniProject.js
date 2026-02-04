@@ -38,7 +38,7 @@ do {
   menu += "5. Thoát\n";
   menu += "Vui lòng nhập lựa chọn của bạn (1-5):";
 
-  choice =+ prompt(menu);
+  choice = +prompt(menu);
 
   switch (choice) {
     case 1:
@@ -79,13 +79,15 @@ do {
       let enterColumns = +prompt("Nhập số cột: ");
 
       for (let rows = 1; rows <= enterRows; rows++) {
+        let rowLayout = "";
         for (let columns = 1; columns <= enterColumns; columns++) {
+          let position = `[${rows}-${columns}]`;
           if (rows === columns) {
-            console.log(`Kệ ưu tiên`);
-            continue;
+            position += " (Kệ ưu tiên)";
           }
-          console.log(`Hàng ${rows} - Kệ ${columns}`);
+          rowLayout += position + " ";
         }
+        console.log(rowLayout);
       }
       break;
     case 3:
@@ -114,10 +116,10 @@ do {
       break;
     case 4:
       // Mã số may mắn
-      let luckyNumber =+ prompt("Nhập số N bất kỳ: ");
+      let luckyNumber = +prompt("Nhập số N bất kỳ: ");
       if (isNaN(luckyNumber) || luckyNumber <= 0) {
         console.log("Vui lòng nhập số N dương!");
-        return;
+        break;
       }
 
       let luckyCount = 0;
@@ -138,7 +140,7 @@ do {
       console.log(`Tìm thấy ${luckyCount} mã may mắn!!`);
       break;
     case 5:
-      console.log( "Hệ thống đang đăng xuất...");
+      console.log("Hệ thống đang đăng xuất... Hẹn gặp lại");
       break;
     default:
       console.log("Vui lòng nhập lựa chọn từ 1-5!");
