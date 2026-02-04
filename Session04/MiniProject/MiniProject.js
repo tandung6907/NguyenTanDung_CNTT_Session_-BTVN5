@@ -79,15 +79,15 @@ do {
       let enterColumns = +prompt("Nhập số cột: ");
 
       for (let rows = 1; rows <= enterRows; rows++) {
-        let rowLayout = "";
+        let line = "";
         for (let columns = 1; columns <= enterColumns; columns++) {
-          let position = `[${rows}-${columns}]`;
+          let square = `[${rows}-${columns}]`;
           if (rows === columns) {
-            position += " (Kệ ưu tiên)";
+            square += " (Kệ ưu tiên)";
           }
-          rowLayout += position + " ";
+          line += square + " ";
         }
-        console.log(rowLayout);
+        console.log(line);
       }
       break;
     case 3:
@@ -146,3 +146,4 @@ do {
       console.log("Vui lòng nhập lựa chọn từ 1-5!");
   }
 } while (choice !== 5);
+
