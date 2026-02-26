@@ -70,7 +70,7 @@ function generateRankingReport(minMatches, players) {
     console.log("No player");
     return;
   }
-  return filtered
+  let ranked = filtered
     .map((player, index) => {
       let performanceScore = Number(
         ((player.goals + player.assists) / player.matches).toFixed(2),
@@ -86,7 +86,7 @@ function generateRankingReport(minMatches, players) {
         ...player,
         performanceScore,
         efficiencyScore,
-        originalIndex: index,
+        originalIndex: players.indexOf(players),
       };
     })
     .sort((a, b) => {
@@ -101,6 +101,27 @@ function generateRankingReport(minMatches, players) {
       }
       return a.originalIndex - b.originalIndex;
     });
+
+  // ====== IN BÁO CÁO ======
+  console.log("XẾP HẠNG ĐỘI BÓNG (từ minMatches trở lên)");
+
+  ranked.forEach((player, index) => {
+    console.log(
+      `${index + 1}. ${player.name} - Efficiency: ${
+        player.efficiencyScore
+      } | Performance: ${player.performanceScore} | Goals: ${player.goals}`,
+    );
+  });
+
+  console.log(`\nTổng số cầu thủ xếp hạng: ${ranked.length}`);
+
+  console.log(`\nCầu thủ xuất sắc nhất: ${ranked[0].name}`);
+
+  let top3 = ranked.slice(0, 3);
+  let avgEfficiency =
+    top3.reduce((sum, p) => sum + p.efficiencyScore, 0) / top3.length;
+
+  console.log(`\nTrung bình efficiency top 3: ${avgEfficiency.toFixed(2)}`);
 }
 
-console.log(generateRankingReport(50, players));
+generateRankingReport(35, players);
