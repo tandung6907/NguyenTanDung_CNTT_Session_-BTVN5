@@ -4,7 +4,6 @@ let products = [];
 let productIdCounter = 1;
 let editingProductId = null;
 
-// DOM elements
 const productForm = document.getElementById("productForm");
 const formTitle = document.getElementById("formTitle");
 const submitBtn = document.getElementById("submitBtn");
@@ -15,8 +14,8 @@ const productCategory = document.getElementById("productCategory");
 const productPrice = document.getElementById("productPrice");
 const productQuantity = document.getElementById("productQuantity");
 const productDescription = document.getElementById("productDescription");
-const productTableBody = document.getElementById("productTableBody"); // ✅ Fix: đúng id
-const emptyState = document.getElementById("emptyState"); // ✅ Fix: có trong HTML
+const productTableBody = document.getElementById("productTableBody"); // Fix: đúng id
+const emptyState = document.getElementById("emptyState"); // Fix: có trong HTML
 const searchInput = document.getElementById("searchInput");
 const filterCategory = document.getElementById("filterCategory");
 const totalProducts = document.getElementById("totalProducts");
@@ -187,7 +186,7 @@ function resetForm() {
 // ===== RENDER =====
 function renderProducts(filteredProducts = null) {
   const list = filteredProducts || products;
-  productTableBody.innerHTML = ""; // ✅ Fix: append vào <tbody> đúng chuẩn
+  productTableBody.innerHTML = ""; // Fix: append vào <tbody> đúng chuẩn
 
   if (list.length === 0) {
     emptyState.classList.add("show");
