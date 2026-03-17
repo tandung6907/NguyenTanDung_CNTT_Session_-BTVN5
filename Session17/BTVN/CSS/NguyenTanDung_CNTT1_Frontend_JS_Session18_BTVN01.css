@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: #fff8f0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 420px;
+  overflow: hidden;
+}
+
+/* Header */
+.card-header {
+  background: #e03030;
+  padding: 28px 24px 22px;
+  text-align: center;
+  color: #fff;
+}
+.card-header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.card-header p {
+  font-size: 0.88rem;
+  opacity: 0.88;
+}
+
+/* List */
+.todo-list {
+  padding: 20px 20px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff8f0;
+  border: 1.5px solid #f5c9a0;
+  border-left: 4px solid #e8805a;
+  border-radius: 10px;
+  padding: 14px 16px;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+.todo-item:hover {
+  background: #fef0e4;
+}
+.todo-item.done {
+  opacity: 0.55;
+}
+.todo-item.done .todo-text {
+  text-decoration: line-through;
+  color: #aaa;
+}
+.todo-item.done .todo-status {
+  color: #4caf50;
+}
+
+.todo-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.todo-icon {
+  font-size: 1.3rem;
+}
+.todo-text {
+  font-size: 0.97rem;
+  color: #333;
+  font-weight: 500;
+}
+.todo-status {
+  font-size: 0.82rem;
+  color: #aaa;
+  font-style: italic;
+  white-space: nowrap;
+}
+
+/* Footer */
+.card-footer {
+  padding: 16px 24px 20px;
+  text-align: center;
+  font-size: 0.78rem;
+  color: #bbb;
+  border-top: 1px #bbb solid;
+}
+.card-footer span {
+  margin: 0 4px;
+}

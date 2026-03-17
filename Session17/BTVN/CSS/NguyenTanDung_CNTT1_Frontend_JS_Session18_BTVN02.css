@@ -1,0 +1,273 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --red: #c0392b;
+  --red-dark: #a93226;
+  --gold: #e67e22;
+  --green: #27ae60;
+  --green-bg: #eafaf1;
+  --cream: #fffdf4;
+  --todo-bg: #fffbef;
+  --border: #f0e6c8;
+  --text: #3d2b1f;
+  --muted: #9b8c7a;
+  --radius: 14px;
+  --shadow: 0 8px 32px rgba(180, 80, 0, 0.1);
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5ede0;
+  font-family: "Be Vietnam Pro", sans-serif;
+  padding: 24px;
+}
+
+/* card */
+.card {
+  background: var(--cream);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 480px;
+  overflow: hidden;
+  animation: fadeUp 0.5s ease both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* header */
+.header {
+  background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%);
+  padding: 24px 28px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.header::before {
+  content: "🎊";
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  font-size: 22px;
+  opacity: 0.6;
+}
+.header::after {
+  content: "🎊";
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  font-size: 22px;
+  opacity: 0.6;
+  transform: scaleX(-1);
+}
+.header h1 {
+  font-family: "Baloo 2", cursive;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.3px;
+}
+.header p {
+  margin-top: 5px;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.78);
+  font-weight: 400;
+}
+
+/* add form */
+.add-row {
+  display: flex;
+  gap: 8px;
+  padding: 16px 20px 4px;
+}
+.add-row input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  background: #fff;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.add-row input:focus {
+  border-color: var(--gold);
+}
+.add-row input::placeholder {
+  color: var(--muted);
+}
+.add-row button {
+  padding: 10px 18px;
+  background: var(--red);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.1s;
+}
+.add-row button:hover {
+  background: var(--red-dark);
+}
+.add-row button:active {
+  transform: scale(0.96);
+}
+
+/* list */
+.list {
+  padding: 14px 20px 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* item */
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 16px;
+  border-radius: var(--radius);
+  border-left: 4px solid var(--gold);
+  background: var(--todo-bg);
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    transform 0.12s;
+  user-select: none;
+}
+.todo-item:hover {
+  transform: translateX(2px);
+}
+
+.todo-item.done {
+  background: var(--green-bg);
+  border-left-color: var(--green);
+}
+
+/* circle / check icon */
+.check-icon {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: all 0.2s;
+  background: transparent;
+}
+.todo-item.done .check-icon {
+  background: var(--green);
+  border-color: var(--green);
+  color: #fff;
+}
+
+.todo-text {
+  flex: 1;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text);
+  transition: color 0.2s;
+}
+.todo-item.done .todo-text {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+.todo-status {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 20px;
+  white-space: nowrap;
+  background: rgba(230, 126, 34, 0.13);
+  color: var(--gold);
+  transition: all 0.2s;
+}
+.todo-item.done .todo-status {
+  background: rgba(39, 174, 96, 0.13);
+  color: var(--green);
+}
+
+/* delete btn */
+.del-btn {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ccc;
+  font-size: 16px;
+  line-height: 1;
+  padding: 2px 4px;
+  border-radius: 6px;
+  transition:
+    color 0.15s,
+    background 0.15s;
+}
+.del-btn:hover {
+  color: var(--red);
+  background: #fdecea;
+}
+
+/* footer */
+.footer {
+  text-align: center;
+  padding: 14px 20px 18px;
+  font-size: 0.73rem;
+  color: var(--muted);
+}
+.footer span {
+  margin: 0 6px;
+  opacity: 0.5;
+}
+
+/* empty state */
+.empty {
+  text-align: center;
+  padding: 24px 0 10px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+/* item enter animation */
+@keyframes itemIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.todo-item {
+  animation: itemIn 0.25s ease both;
+}

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Công việc chuẩn bị Tết</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Be+Vietnam+Pro:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="../CSS/NguyenTanDung_CNTT1_Frontend_JS_Session18_BTVN06.css"
+    />
+  </head>
+  <body>
+    <div class="card">
+      <div class="header">
+        <h1>Công việc chuẩn bị Tết</h1>
+        <p>Click để đánh dấu hoàn thành</p>
+      </div>
+
+      <div class="add-row">
+        <input
+          id="newInput"
+          type="text"
+          placeholder="Thêm công việc mới..."
+          maxlength="80"
+        />
+        <button onclick="addTodo()">+ Thêm</button>
+        <button class="btn-clear-all" onclick="clearAll()">
+          🗑 Xóa tất cả
+        </button>
+      </div>
+
+      <div class="list" id="todoList"></div>
+
+      <div class="footer">
+        Trạng thái được lưu tự động vào localStorage
+        <span>•</span>
+        Refresh để kiểm tra
+      </div>
+    </div>
+
+    <script src="../JS/NguyenTanDung_CNTT1_Frontend_JS_Session18_BTVN06.js"></script>
+  </body>
+</html>
